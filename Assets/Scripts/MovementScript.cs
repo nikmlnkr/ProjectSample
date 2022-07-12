@@ -7,10 +7,11 @@ public class MovementScript : MonoBehaviour
 {
     public float speed = 0.03f;
     public float rotateSpeed = 0.4f;
+    public MeshRenderer[] allChildMeshes;
     // Start is called before the first frame update
     void Start()
     {
-
+        allChildMeshes = gameObject.transform.GetComponentsInChildren<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -41,11 +42,17 @@ public class MovementScript : MonoBehaviour
         {
             if(GetComponent<MeshRenderer>().enabled)
             {
-                GetComponent<MeshRenderer>().enabled = false;
+                for(int i=0;i<allChildMeshes.Length;i++)
+                {
+                    allChildMeshes[i].enabled = false;
+                }
             }
             else
             {
-                GetComponent<MeshRenderer>().enabled = true;
+                for (int i = 0; i < allChildMeshes.Length; i++)
+                {
+                    allChildMeshes[i].enabled = true;
+                }
             }
         }
     }
