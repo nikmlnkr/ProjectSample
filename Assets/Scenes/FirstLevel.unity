@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 11776416}
   - component: {fileID: 11776415}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Eye1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 476061241}
   - component: {fileID: 476061240}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.001
   rotateSpeed: 5
+  allChildMeshes: []
 --- !u!65 &538052702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -410,7 +411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538052700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.86, z: -5.08}
+  m_LocalPosition: {x: 7, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -787,7 +788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148675889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: -4.31}
+  m_LocalPosition: {x: -1.31, y: 6, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 476061239}
@@ -810,6 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.01
   rotateSpeed: 1
+  allChildMeshes: []
 --- !u!54 &1148675895
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1025,7 +1027,7 @@ GameObject:
   - component: {fileID: 1435338468}
   - component: {fileID: 1435338467}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: Eye2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
