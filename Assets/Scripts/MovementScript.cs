@@ -7,67 +7,39 @@ public class MovementScript : MonoBehaviour
 {
     public float speed = 0.03f;
     public float rotateSpeed = 0.4f;
-    public MeshRenderer[] allChildMeshes;
+
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        allChildMeshes = gameObject.transform.GetComponentsInChildren<MeshRenderer>();
+
     }
 
     // Update is called once per frame
+    // Time.deltaTime is the difference of time between each frame execution
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        if (!gameManager.gameOver)
         {
-            transform.position += new Vector3(speed, 0, 0);
-        }
-
-        if(Input.GetKey(KeyCode.S))
-        {
-            transform.position -= new Vector3(speed, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0, rotateSpeed, 0);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0, -rotateSpeed, 0);
-        }
-
-        //M de-activates and activates visibility of the object
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if(GetComponent<MeshRenderer>().enabled)
+            if (Input.GetKey(KeyCode.W))
             {
-                for(int i=0;i<allChildMeshes.Length;i++)
-                {
-                    allChildMeshes[i].enabled = false;
-                }
+                transform.position += transform.forward * speed * Time.deltaTime;
             }
-            else
+
+            if (Input.GetKey(KeyCode.S))
             {
-                for (int i = 0; i < allChildMeshes.Length; i++)
-                {
-                    allChildMeshes[i].enabled = true;
-                }
+                transform.position -= transform.forward * speed * Time.deltaTime;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Rotate(0, -rotateSpeed * Time.deltaTime, 0);
             }
         }
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-        Debug.Log("My cube has touched " + col.gameObject.name);
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        Debug.Log("My cube has lost touch with " + collision.gameObject.name);
-    }
-    void OnCollisionStay(Collision collision)
-    {
-
     }
 }
