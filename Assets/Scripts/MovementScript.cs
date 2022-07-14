@@ -9,10 +9,35 @@ public class MovementScript : MonoBehaviour
     public float rotateSpeed = 0.4f;
 
     public GameManager gameManager;
+
+    public bool leftPressed = false;
+    public bool rightPressed = false;
+    public bool upPressed = false;
+    public bool downPressed = false;
     // Start is called before the first frame update
     void Start()
     {
 
+    }
+
+    public void ToggleLeft(bool val)
+    {
+        leftPressed = val;
+    }
+
+    public void ToggleRight(bool val)
+    {
+        rightPressed = val;
+    }
+
+    public void ToggleUp(bool val)
+    {
+        upPressed = val;
+    }
+
+    public void ToggleDown(bool val)
+    {
+        downPressed = val;
     }
 
     // Update is called once per frame
@@ -21,25 +46,41 @@ public class MovementScript : MonoBehaviour
     {
         if (!gameManager.gameOver)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.position += transform.forward * speed * Time.deltaTime;
-            }
+            if(upPressed)
+                MoveUp();
 
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.position -= transform.forward * speed * Time.deltaTime;
-            }
+            if(downPressed)
+                MoveDown();
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
-            }
+            if(rightPressed)
+                MoveRight();
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.Rotate(0, -rotateSpeed * Time.deltaTime, 0);
-            }
+            if(leftPressed)
+               MoveLeft();
         }
+    }
+
+    public void MoveLeft()
+    {
+        Debug.Log("Moving left");
+        transform.Rotate(0, -rotateSpeed * Time.deltaTime, 0);
+    }
+
+    public void MoveRight()
+    {
+        Debug.Log("Moving right");
+        transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+    }
+
+    public void MoveUp()
+    {
+        Debug.Log("Moving up");
+        transform.position += transform.forward * speed * Time.deltaTime;
+    }
+
+    public void MoveDown()
+    {
+        Debug.Log("Moving down");
+        transform.position -= transform.forward * speed * Time.deltaTime;
     }
 }
