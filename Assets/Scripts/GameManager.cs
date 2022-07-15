@@ -7,6 +7,15 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public bool gameOver = false;
     public UIManager uiManager;
+    public AdManager adManager;
+
+    public bool bonusForWatchingAd = false;
+
+    public void GiveBonus()
+    {
+        Debug.Log("Reward received");
+        bonusForWatchingAd = true;
+    }
 
     public void ScoreIncrease()
     {
@@ -17,6 +26,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("You win!");
             gameOver = true;
             uiManager.SetWinText();
+            adManager.ShowRewardedVideoAd();
         }
     }
 }

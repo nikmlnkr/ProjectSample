@@ -62,25 +62,21 @@ public class MovementScript : MonoBehaviour
 
     public void MoveLeft()
     {
-        Debug.Log("Moving left");
         transform.Rotate(0, -rotateSpeed * Time.deltaTime, 0);
     }
 
     public void MoveRight()
     {
-        Debug.Log("Moving right");
         transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
     }
 
     public void MoveUp()
     {
-        Debug.Log("Moving up");
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     public void MoveDown()
     {
-        Debug.Log("Moving down");
         transform.position -= transform.forward * speed * Time.deltaTime;
     }
 }
