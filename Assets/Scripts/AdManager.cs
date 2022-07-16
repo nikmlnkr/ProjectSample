@@ -80,7 +80,7 @@ public class AdManager : MonoBehaviour
         }
     }
 
-    public void ShowAd()
+    public void ShowInterstitialAd()
     {
         if (this.interstitial.IsLoaded())
         {
